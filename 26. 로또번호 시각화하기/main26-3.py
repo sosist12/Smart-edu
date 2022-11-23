@@ -1,5 +1,7 @@
 import pandas as pd
 from collections import Counter
+import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
 
 file_path = r"26. 로또번호 시각화하기\lotto.xlsx"
 df_from_excel = pd.read_excel(file_path,engine='openpyxl')
@@ -18,6 +20,14 @@ num_list += list(df_from_excel['당첨번호5'].astype(int))
 num_list += list(df_from_excel['당첨번호6'].astype(int))
 
 count = Counter(num_list)
+
 most_num = count.most_common(45)
 
-print(most_num)
+df = pd.DataFrame(most_num)
+
+df = df.rename(columns={0:'번호',1:'횟수'})
+df = df.set_index(['번호'])
+
+plt.bar(df.index, df['횟수'] ,width=.5)
+
+plt.show()
