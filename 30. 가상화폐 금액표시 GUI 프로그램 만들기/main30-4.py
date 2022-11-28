@@ -32,4 +32,4 @@ def get_coin_1sec():
 
 get_coin_1sec()
 
-window.mainloop()
+window.mainloop()   
