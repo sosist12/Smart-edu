@@ -20,3 +20,4 @@ while True :
         game_count = game_count + 1 #맞추지못하면 입력 횟수 1 증가
     except :
         print("에러가 발생하였습니다. 숫자를 입력하세요")
+ 
